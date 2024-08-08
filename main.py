@@ -64,9 +64,10 @@ def plot_results(results, rounds):
 
     # Plotten
     plt.figure(figsize=(10, 6))
-    plt.plot(range(1, len(extractor_a_accumulated) + 1), extractor_a_accumulated, label='Extractor A', marker='o')
-    plt.plot(range(1, len(extractor_b_accumulated) + 1), extractor_b_accumulated, label='Extractor B', marker='s')
-    plt.plot(range(1, len(extractor_c_accumulated) + 1), extractor_c_accumulated, label='Extractor C', marker='^')
+    plt.plot(range(0, len(results.get("energy_field_points_over_time"))), results.get("energy_field_points_over_time"), label='Energiepunkte', marker='^')
+    plt.plot(range(0, len(extractor_a_accumulated) ), extractor_a_accumulated, label='Extractor A', marker='o')
+    plt.plot(range(0, len(extractor_b_accumulated) ), extractor_b_accumulated, label='Extractor B', marker='s')
+    plt.plot(range(0, len(extractor_c_accumulated) ), extractor_c_accumulated, label='Extractor C', marker='^')
 
     plt.xlabel('Runde')
     plt.ylabel('Akkumulierte Energiepunkte')
@@ -78,5 +79,6 @@ def plot_results(results, rounds):
 
 
 if __name__ == "__main__":
-    results = game(15)
-    plot_results(results, 15)
+    rounds = 50
+    results = game(rounds)
+    plot_results(results, rounds)
